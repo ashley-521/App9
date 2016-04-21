@@ -101,6 +101,14 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
+          function init() {
+              var touchzone = document.getElementById("touchzone");
+              touchzone.addEventListener("touchstart", touchHandler, false);
+           function touchHandler(event) {
+               var coords = document.getElementById("coords");
+               coords.innerHTML = 'x: ' + event.touches[0].pageX + ',y: ' + event.touches[0].pageY;
+           }
+          
           }// end of img.onload
         
         img.src = reader.result;
@@ -144,6 +152,9 @@
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
       </div>
       <div id="messageDisplayArea"></div>
+      
+      <div id="coords"></div>
+      <div id="coords"></div>
       
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
